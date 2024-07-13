@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="../static/css/signup.css">
+    <link rel="icon" href="../static/image/image.png">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    
+    <form method="post" action="/signup/">
+        {%csrf_token%}
+        <center>
+        <div class="main-container">
+            
+            <div class="box">
+                <div class="heading">
+                    <h2>Sign Up</h2>
+                </div>
+                <h3 id="msg" style="color: green;font-size: larger;font-family: sans-serif;">{{sucessmessage}}</h3>
+                <h3 id="msg" style="color: red;font-size: larger;font-family: sans-serif;">{{messagekey}}</h3>
+                <b><h3 id="msg" style="color: red;font-size: larger; font-family: sans-serif;">{{password_error}}</h3></b>
+                <input type="email" name="email" placeholder="Enter Email">
+                <input type="password" name="password" placeholder="Enter Password">
+                <input type="text" name="fname" placeholder="Enter First Name">
+                <input type="text" name="mname" placeholder="Enter Middle Name">
+                <input type="text" name="lname" placeholder="Enter Last Name">
+                <input type="number" name="user_age" placeholder="Enter Age">
+                <label class="gender" for="gender"> Select your gender</label>
+                <select name="usergender" class="usergender">
+                    <option value="none" selected>Gender</option>
+                       <option value="Male">Male</option>
+                    <option value="Female">Female</option>    
+                </select><br>
+                <textarea placeholder="Address"  name="useraddress"></textarea>
+                <input type="text" name="usercity" placeholder="City">
+                <input type="text" placeholder="Area"   name="userarea">
+                <input type="text" placeholder="Pincode"   name="userpincode">
+                <input type="text" placeholder="Contact No"  name="usercontactno">
+                
+                <input type="submit" name="login" value="Sign Up">
+                <p>Have an account? <a href="/">Login</a></p>
+                
+            </div>
+        </div>
+    </center>
+    </form>
+    <script>
+        setTimeout(function () {
+            if ($('#msg').length > 0) {
+                $('#msg ').remove();
+            }
+        }, 4000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+{% extends 'nav_bar.html' %}
+{% block content %}
+<head>
+    <link rel="stylesheet" href="../static/css/send_feedback.css">
+</head>
+<div class="card" >
+    <div class="baner">
+        <h3 class="text-center">Feedback</h3>
+    </div>
+    <form method="post">
+        {% csrf_token%}
+
+        <div class="form-group">
+            <label>Enter Name</label><br>
+            <input type="text" placeholder="Enter name" class="form-control" name="name"
+            value="{{userid.userfname}}" readonly>
+        </div>
+        <div class="form-group">
+            <label>Enter Email</label><br>
+            <input type="email" placeholder="Enter email" class="form-control" name="email"
+                value="{{userid.uid}}" readonly>
+        </div>
+        <div class="form-group">
+            <label>Write Feedback</label><br>
+            <textarea class="form-control" name="Feedback" placeholder="Enter your Feedback here"></textarea>
+            <!-- <input type="password" placeholder="Enter password" class="form-control" -->
+                <!-- name="passowrd" value="{{n.userpwd}}" required> -->
+        </div>
+        <!-- <h5 style="color: green;">{{sucess_msg}}</h5> -->
+        <br>
+        <input type="submit" class="btn" value="submit"  />
+
+    </form>
+    </br>
+</div>
+</div>
+
+
+{% endblock %}

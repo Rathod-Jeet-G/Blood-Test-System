@@ -1,0 +1,49 @@
+{% extends 'nav_bar.html' %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="../static/css/home.css">
+    <link rel="icon" href="../static/image/image.png">
+</head>
+
+<h1 style="margin-left: 100px;color: lightskyblue;">Welcome {{userid.userfname}}</h1>
+<div class="dashboard">
+    <div class="card">
+        <div class="baner">
+            <h3 class="text-center" style="font-weight: bold; padding: 10px 0px 10px 0px;"> Patient Records Report</h3>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Patient NAME</th>
+                    <th>Patient Email</th>
+                    <th>Test Name</th>
+                    <th>Haemoglobin</th> 
+                    <th>Platelet_Count</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in test_details %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{ i.patientname }}</td>
+                    <td>{{ i.email }}</td>
+                    <td>{{ i.Test_name }}</td>
+                    <td>{{ i.Haemoglobin }}</td>
+                    <td>{{ i.Platelet_Count }}</td>
+                    <td>{{ i.date_of_test }}</td>
+                    <td>
+                        <button class="btn"><a href="{% url 'user:view_test' i.id %}">view</a> </button>
+                        
+                         
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

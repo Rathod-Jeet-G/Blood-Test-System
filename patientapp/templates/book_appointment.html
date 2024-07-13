@@ -1,0 +1,54 @@
+{% extends 'nav_bar.html' %}
+{% block content %}
+
+<head>
+    <link rel="stylesheet" href="../static/css/book_appointment.css">
+</head>
+<div class="card">
+    <div class="baner">
+        <h3 class="text-center">Book Appointment</h3>
+    </div>
+    <form method="POST">
+        {% csrf_token%}
+        <h3 style="color: green;font-size: larger;font-family: sans-serif;">{{msg}}</h3>
+        <h3  style="color: red;font-size: larger;font-family: sans-serif;">{{m}}</h3>
+        <div class="form-group">
+            <label>Enter Name</label><br>
+            <input type="text" placeholder="Enter name" class="form-control" name="name" value="{{b.userfname}}"
+                readonly>
+        </div>
+        <div class="form-group">
+            <label>Enter Email</label><br>
+            <input type="email" placeholder="Enter email" class="form-control" name="email" value="{{b.uid}}" readonly>
+        </div>
+        <div class="form-group">
+            <label>Enter PhoneNo</label><br>
+            <input type="PhoneNo" placeholder="Enter PhoneNo" class="form-control" name="phone"
+                value="{{b.usercontactno}}" readonly>
+        </div>
+        <div class="form-group">
+            <label>Test Name:</label><br>
+            <select name="Test_name" id="Test_name">
+                {%for i in ab%}
+                <option value="{{i.id}}" selected="selected">{{i.category_name}}</option>
+                {%endfor%}
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Select Schedule</label><br>
+            <input type="datetime-local" class="form-control" name="schedule">
+        </div>
+
+        <input type="hidden" name="status" placeholder="status" value="pending" readonly>
+
+        <!-- <h5 style="color: green;">{{sucess_msg}}</h5> -->
+        <br>
+        <input type="submit" class="btn" value="submit here" />
+
+    </form>
+    </br>
+</div>
+</div>
+
+
+{% endblock %}

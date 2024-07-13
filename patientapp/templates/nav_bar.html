@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<link rel="stylesheet" href="../static/css/navbar.css">
+<link rel="icon" href="../static/image/image.png">
+</head>
+<body>
+    
+   
+<div class="sidenav" id="sidenav">
+    <h2 style="color: lightgray;margin-top:19px;margin-left: 28px;">Patient dashbord</h3>
+    <hr style="margin-bottom: 20px;">
+    <div class="main-nav-row">
+        <div class="icon-css">    
+            <i class='bx bxs-user'></i>
+        </div>
+        <div>
+            <a href="/user_profile/">Patient Profile</a>
+        </div>
+    </div>
+    <div class="main-nav-row">
+        <div class="icon-css">    
+            <i class='bx bxs-dashboard'></i>
+        </div>
+        <div>
+            <a href="/home/">Patient Dashbord</a>
+        </div>
+    </div>
+    <div class="main-nav-row">
+        <div class="icon-css">    
+            <i class='bx bxs-notepad'></i>
+        </div>
+        <div>
+            <a href="/book_appointment/">Take appointment</a>
+        </div>
+    </div>
+    <div class="main-nav-row">
+        <div class="icon-css">    
+            <i class='bx bxs-notepad'></i>
+        </div>
+        <div>
+            <a href="/view_appointment/">Appointment Status</a>
+        </div>
+    </div>
+    <div class="main-nav-row">
+        <div class="icon-css">    
+            <i class='bx bxs-info-square'></i>
+        </div>
+        <div>
+            <a href="/user_feedback/">Send Feedback</a>
+        </div>
+    </div>
+  
+    
+  
+  <hr style="color: azure;margin-top: 270px;margin-bottom: 10px;">
+  <a style="margin-left: 80px;" href="/logout/" class="Logout">Logout</a>
+</div>
+<center>
+<div class="main">
+    {% block content %}
+    {% endblock %}
+</div>
+</center>
+ 
+</body>
+</html>

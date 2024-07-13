@@ -1,0 +1,47 @@
+{% extends 'nav_bar.html' %}
+
+{% block content %}
+<head>
+    <link rel="stylesheet" href="../static/css/view_app.css">
+</head>
+
+<div class="dashboard">
+    <div class="card">
+        <div class="baner">
+            <h3 class="text-center">Appointment Status </h3>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Patient NAME</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Schedule</th> 
+                    <th>Test type</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if userinfo %}
+                {% for i in userinfo %}
+                <tr>
+                    <td>{{forloop.counter}}</td>
+                    <td>{{ i.name }}</td>
+                    <td>{{ i.phone }}</td>
+                    <td>{{ i.email}}</td>
+                    <td>{{ i.schedule }}</td>
+                    <td>{{ i.Test_name }}</td>
+                    <td>{{ i.status }}</td>
+                    <td>
+                       <button class="btn"><a href="{%url 'user:delete_appointment' i.id%}" >Delete</a></button>
+                    </td>
+                </tr>
+                {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
